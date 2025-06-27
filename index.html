@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation Week Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #151515;
+        }
+        h1 {
+            color: #bbb;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    </style>
+    <!-- Preload for better performance -->
+    <link
+        rel="preload"
+        href="https://nimiq-feedback.je-cf9.workers.dev/widget.css"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="https://nimiq-feedback.je-cf9.workers.dev/widget.css" /></noscript>
+
+    <!-- Load JavaScript deferred -->
+    <script src="https://nimiq-feedback.je-cf9.workers.dev/widget.js" defer></script>
+</head>
+<body>
+    <h1>Innovation Week</h1>
+    <div id="feedback-widget"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const widget = window.mountFeedbackWidget('#feedback-widget', {
+                app: 'nimiq-innovation-week', // 'nimiq-wallet' | 'nimiq-pay' | 'playground'
+                lang: 'en', // 'en' | 'es' (optional, defaults to 'en')
+                feedbackEndpoint: 'https://nimiq-feedback.je-cf9.workers.dev/api/feedback',
+                initialForm: 'feedback', // optional - directly show a specific form: 'bug' | 'idea' | 'feedback'
+                dark: true,
+            })
+    
+            // Use widget methods
+            widget.showForm('feedback') // Show the form selection grid
+        });
+    </script>
+</body>
+</html> 
